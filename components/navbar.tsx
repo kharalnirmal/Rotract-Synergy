@@ -17,7 +17,7 @@ const navigation = [
   { label: "About", href: "/about" },
   { label: "Team", href: "/#team" },
   { label: "Events", href: "/events" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "mailto:kalpitnepal66@gmail.com" },
 ];
 
 export default function Navbar() {
