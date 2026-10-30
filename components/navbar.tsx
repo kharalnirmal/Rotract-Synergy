@@ -2,68 +2,122 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { usePathname } from "next/navigation";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+} from "motion/react";
 import { useState } from "react";
 
 const navigation = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Team", href: "#team" },
-  { label: "Events", href: "#events" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Team", href: "/#team" },
+  { label: "Events", href: "/events" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
   const reduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 24);
+  });
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50">
       <motion.nav
         aria-label="Main navigation"
-        initial={reduceMotion ? false : { opacity: 0, y: -18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-6xl rounded-2xl border border-slate-200/80 bg-white/90 px-4 shadow-[0_12px_40px_rgba(35,70,128,0.10)] backdrop-blur-xl sm:px-6"
+        initial={
+          reduceMotion
+            ? false
+            : { opacity: 0, y: -18, width: "100%", maxWidth: "100%" }
+        }
+        animate={{
+          opacity: 1,
+          y: isScrolled ? 16 : 0,
+          width: isScrolled ? "calc(100% - 2rem)" : "100%",
+          maxWidth: isScrolled ? "72rem" : "100%",
+          borderRadius: isScrolled ? 16 : 0,
+          borderColor: isScrolled
+            ? "rgba(226, 232, 240, 0.8)"
+            : "rgba(226, 232, 240, 0.65)",
+          boxShadow: isScrolled
+            ? "0 12px 40px rgba(35,70,128,0.10)"
+            : "0 4px 18px rgba(35,70,128,0.07)",
+        }}
+        transition={{
+          opacity: { duration: 0.45 },
+          y: {
+            duration: reduceMotion ? 0 : 0.55,
+            ease: [0.22, 1, 0.36, 1],
+          },
+          width: {
+            duration: reduceMotion ? 0 : 0.55,
+            ease: [0.22, 1, 0.36, 1],
+          },
+          maxWidth: {
+            duration: reduceMotion ? 0 : 0.55,
+            ease: [0.22, 1, 0.36, 1],
+          },
+          borderRadius: {
+            duration: reduceMotion ? 0 : 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          },
+          borderColor: { duration: reduceMotion ? 0 : 0.4 },
+          boxShadow: { duration: reduceMotion ? 0 : 0.5, ease: "easeOut" },
+        }}
+        className="relative mx-auto border bg-white/90 px-4 backdrop-blur-xl sm:px-6"
       >
-        <div className="flex h-[72px] items-center justify-between">
+        <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between">
           <Link
-            href="#home"
+            href="/"
             aria-label="Vision Into Action home"
-            className="relative h-14 w-44 shrink-0 overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D12161]"
+            className="flex h-14 w-44 shrink-0 items-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D12161]"
           >
             <Image
-              src="/nav logo.png"
-              alt="Vision Into Action"
-              width={1080}
-              height={1080}
+              src="/logofor nav.png"
+              alt="Rotaract Club of Butwal Synergy"
+              width={535}
+              height={219}
               priority
-              className="absolute left-0 top-1/2 h-44 w-44 -translate-y-1/2 object-contain"
+              className="h-14 w-auto object-contain"
             />
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
-            {navigation.map((item, index) => (
+            {navigation.map((item) => {
+              const isActive = pathname === item.href;
+
+              return (
               <Link
                 key={item.label}
                 href={item.href}
                 className={`group relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D12161] ${
-                  index === 0
+                  isActive
                     ? "text-[#234680]"
                     : "text-slate-600 hover:text-[#234680]"
                 }`}
+                aria-current={isActive ? "page" : undefined}
               >
                 {item.label}
                 <span
                   className={`absolute inset-x-4 -bottom-0.5 h-0.5 origin-left rounded-full bg-[#D12161] transition-transform duration-300 ${
-                    index === 0
+                    isActive
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
                   }`}
                 />
               </Link>
-            ))}
+              );
+            })}
           </div>
 
           <button
@@ -93,8 +147,11 @@ export default function Navbar() {
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden md:hidden"
             >
-              <div className="grid gap-1 border-t border-slate-100 py-3">
-                {navigation.map((item, index) => (
+              <div className="mx-auto grid max-w-6xl gap-1 border-t border-slate-100 py-3">
+                {navigation.map((item, index) => {
+                  const isActive = pathname === item.href;
+
+                  return (
                   <motion.div
                     key={item.label}
                     initial={reduceMotion ? false : { opacity: 0, x: -8 }}
@@ -105,15 +162,17 @@ export default function Navbar() {
                       href={item.href}
                       onClick={() => setIsOpen(false)}
                       className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
-                        index === 0
+                        isActive
                           ? "bg-[#234680]/5 text-[#234680]"
                           : "text-slate-600 hover:bg-slate-50 hover:text-[#234680]"
                       }`}
+                      aria-current={isActive ? "page" : undefined}
                     >
                       {item.label}
                     </Link>
                   </motion.div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
           )}
