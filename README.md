@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="./public/herologo.png" alt="Rotaract Club of Butwal Synergy logo" width="220" />
 
-## Getting Started
+  # Rotaract Club of Butwal Synergy
 
-First, run the development server:
+  **Empowering Youth. Inspiring Leadership. Creating Impact.**
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<img src="./public/hero%20image.jpg" alt="Members of the Rotaract Club of Butwal Synergy" width="100%" />
+
+## Who We Are
+
+The **Rotaract Club of Butwal Synergy** is a youth-led service organization dedicated to developing young leaders, building lasting friendships, and creating meaningful change in society.
+
+Our club brings together passionate young people who share a commitment to leadership, professional development, community service, and humanitarian action. Through service projects, collaborative programs, and fellowship, we empower youth to address community needs and build a better future.
+
+We are proudly sponsored by the **Rotary Club of Butwal Downtown** and are part of **Zone 19, Rotary International District 3292, Nepal and Bhutan**.
+
+## Club Information
+
+| | |
+|---|---|
+| **Club Name** | Rotaract Club of Butwal Synergy |
+| **Club ID** | 215519 |
+| **Sponsoring Rotary Club** | Rotary Club of Butwal Downtown |
+| **Zone** | Zone 19 |
+| **Rotary District** | RID 3292 |
+| **Region** | Nepal & Bhutan |
+
+## Our Mission
+
+To provide opportunities for young people to enhance their leadership and professional skills, develop lasting friendships, and address the needs of their communities through meaningful service initiatives.
+
+## Our Vision
+
+To inspire a generation of responsible, compassionate, and empowered young leaders who strengthen communities, promote global understanding, and create sustainable positive change.
+
+## What We Do
+
+- Serve and support our local community
+- Develop leadership and professional skills
+- Organize impactful events and projects
+- Build friendship, fellowship, and collaboration
+- Connect young leaders with Rotary’s global movement
+
+## About This Website
+
+This website shares our club’s story, team, past leaders, events, projects, and community impact.
+
+Event, team, and leader information can be updated in:
+
+```text
+edit/site-content.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<div align="center">
+  <strong>Together We Lead. Together We Serve. Together We Make a Difference.</strong>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  <br /><br />
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  Made with ❤️ by <strong>Nirmal</strong>.
+</div>
