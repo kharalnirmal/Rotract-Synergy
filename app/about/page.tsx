@@ -35,10 +35,7 @@ export default function AboutPage() {
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent via-[#D12161]/25 to-white" />
 
         <div className="relative z-10 px-5 pb-12 text-center text-white">
-          <p className="font-[family-name:var(--font-nunito-sans)] text-xs font-bold uppercase tracking-[0.26em] text-white/80">
-            Who we are
-          </p>
-          <h1 className="mt-3 font-[family-name:var(--font-josefin-sans)] text-5xl font-bold uppercase tracking-[0.12em] sm:text-7xl">
+          <h1 className="font-[family-name:var(--font-josefin-sans)] text-5xl font-bold uppercase tracking-[0.12em] sm:text-7xl">
             About Us
           </h1>
           <p className="mt-3 font-[family-name:var(--font-nunito-sans)] text-sm text-white/85 sm:text-base">
@@ -95,10 +92,7 @@ export default function AboutPage() {
       <section className="bg-[#234680]/[0.035] px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
-            <p className="font-[family-name:var(--font-nunito-sans)] text-xs font-bold uppercase tracking-[0.22em] text-[#D12161]">
-              At a glance
-            </p>
-            <h2 className="mt-3 font-[family-name:var(--font-josefin-sans)] text-3xl font-semibold text-[#234680] sm:text-4xl">
+            <h2 className="font-[family-name:var(--font-josefin-sans)] text-3xl font-semibold text-[#234680] sm:text-4xl">
               Official Club Information
             </h2>
           </div>
@@ -150,19 +144,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-slate-950 px-6 py-12 text-center text-white shadow-[0_22px_60px_rgba(15,23,42,0.18)] sm:px-10 sm:py-16">
-          <p className="font-[family-name:var(--font-nunito-sans)] text-xs font-bold uppercase tracking-[0.28em] text-[#f06a9a]">
-            Our Motto
-          </p>
-          <h2 className="mt-4 font-[family-name:var(--font-josefin-sans)] text-4xl font-semibold sm:text-5xl">
-            Service Above Self
-          </h2>
-          <p className="mx-auto mt-5 max-w-3xl font-[family-name:var(--font-nunito-sans)] text-base leading-7 text-white/75 sm:text-lg">
-            Together We Lead. Together We Serve. Together We Make a Difference.
-          </p>
-        </div>
-      </section>
     </main>
   );
 }
